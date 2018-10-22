@@ -5,11 +5,13 @@ Details of the original guide can be found [here](https://github.com/wmonk/creat
 ## Getting started
 To start using this project, clone the repository and run
 
+`yarn install`
+
 `yarn start`
 
 ## Guidelines
 - Capitalize component names
-- Use selector functions
+- Use selector functions when possible
 - Keep components small (Very small. More than 10 lines is probably too big)
 - If certain codes are repeated, extract them to components
 - Avoid synchronising state between child and parent
