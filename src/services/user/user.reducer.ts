@@ -6,7 +6,7 @@ export interface IUserState {
 }
 
 interface IAction {
-    type: string,
+    type: number,
     payload: any
 }
 

@@ -1,13 +1,9 @@
 import userAPI from './user.api';
 
-interface IStringsOnly {
-    [key: string]: string
-}
-
-const actions: IStringsOnly = {
-    LOGIN: 'LOGIN',
-    LOGOUT: 'LGOOUT',
-    SIGNUP: 'SIGNUP'
+enum actions {
+    LOGIN,
+    LOGOUT,
+    SIGNUP
 }
 
 export default actions;
