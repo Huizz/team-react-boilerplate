@@ -4,7 +4,7 @@ import Button from 'components/Button';
 
 interface IProps {
   login: (username: string, password: string) => void,
-  user: any,
+  user?: any,
   isLoggedIn: boolean,
 }
 
@@ -43,8 +43,8 @@ class Home extends React.Component<IProps, IState> {
     } else {
       return (
         <div>
-          <input type="text" name="username" value={this.state.username} onChange={this.onInputChange}/>
-          <input type="password" name="password" value={this.state.password} onChange={this.onInputChange}/>
+          <input type="text" name="username" value={this.state.username} onChange={this.onInputChange} />
+          <input type="password" name="password" value={this.state.password} onChange={this.onInputChange} />
           <Button name="Login" size="large" onClick={this.handleClick} />
         </div>
       )
@@ -52,7 +52,7 @@ class Home extends React.Component<IProps, IState> {
   }
 
   private onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const state = { ...this.state};
+    const state = { ...this.state };
     state[event.target.name] = event.target.value;
     this.setState(state);
   }
