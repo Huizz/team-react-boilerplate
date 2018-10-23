@@ -20,8 +20,6 @@ class Home extends React.Component<IProps, IState> {
       password: '',
       username: ''
     }
-
-    console.log(this.props, 'this.props');
   }
 
   public render = () => (
@@ -32,7 +30,6 @@ class Home extends React.Component<IProps, IState> {
   );
 
   private handleClick = () => {
-    // console.log(this.props, 'this.props');
     this.props.login(this.state.username, this.state.password)
   }
 
