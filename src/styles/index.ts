@@ -1,6 +1,6 @@
 import * as styledComponents from 'styled-components';
 import { ThemedStyledComponentsModule } from 'styled-components';
-import { media, state } from 'styles/utils';
+import { media, state } from './utils';
 
 interface IThemeInterface {
   primaryColor: string;
