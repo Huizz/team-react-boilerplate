@@ -5,9 +5,9 @@ Details of the original guide can be found [here](https://github.com/wmonk/creat
 ## Getting started
 To start using this project, clone the repository and run
 
-`yarn install`
+`npm install`
 
-`yarn start`
+`npm start`
 
 ## Guidelines
 - Capitalize component names
@@ -18,4 +18,4 @@ To start using this project, clone the repository and run
 - Avoid synchronising state between child and parent
 - Use shouldComponentUpdate (returns true/false) to optimise performance
 - Use absolute path if importing from other directories/folders. Use relative path when importing within the same directory
-- If npm dependency is not used in production (e.g. jest), save it under devDependecies via yarn add -D
+- If npm dependency is not used in production (e.g. jest), save it under devDependecies via save-dev
