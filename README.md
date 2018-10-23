@@ -19,3 +19,4 @@ To start using this project, clone the repository and run
 - Use shouldComponentUpdate (returns true/false) to optimise performance
 - Use absolute path if importing from other directories/folders. Use relative path when importing within the same directory
 - If npm dependency is not used in production (e.g. jest), save it under devDependecies via save-dev
+- Actions (per reducer) should be defined in an enum
