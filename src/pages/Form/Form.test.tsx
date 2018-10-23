@@ -11,5 +11,14 @@ describe('<Form />', () => {
         expect(component.find(Form)).toBeTruthy();
         expect(component.find(Button)).toBeTruthy();
     });
-    
+
+    it('handle click events', () => {
+      const component = shallow(<Form />);
+      component.find(Button).simulate('click');
+      expect(component.state('counter')).toBe(2);
+      component.find(Button).simulate('click');
+      component.find(Button).simulate('click');
+      expect(component.state('counter')).toBe(4);
+    });
+
 });
