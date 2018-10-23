@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { breakpoint, transition } from 'styles/utils';
+import { media, state } from 'styles/utils';
 
 const buttonPhoneStyle = `
   background: blue;
@@ -30,7 +30,7 @@ export const ButtonContainer = styled.button`
   cursor: pointer;
   border: none;
   text-decoration: none;
-  ${ breakpoint.phone(buttonPhoneStyle) }
-  ${ breakpoint.tablet(buttonTabletStyle) }
-  ${ transition.active(buttonActiveState) }
+  ${ media.phone(buttonPhoneStyle) }
+  ${ media.tablet(buttonTabletStyle) }
+  ${ state.active(buttonActiveState) }
 `;

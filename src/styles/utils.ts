@@ -1,4 +1,8 @@
-const SIZE = {
+interface INumbersOnly {
+  [key: string]: number;
+}
+
+const SIZE: INumbersOnly = {
   PHONE: 480,
   TABLET: 900
 }
@@ -7,12 +11,12 @@ const SIZE = {
 //   PRIMARY: 'red'
 // }
 
-interface IBreakpoint {
+interface IMedia {
   phone: (extraStyles: string) => string;
   tablet: (extraStyles: string) => string;
 }
 
-export const breakpoint: IBreakpoint = {
+export const media: IMedia = {
   phone: (extraStyles: string): string => {
     return `@media (max-width: ${SIZE.PHONE-1}px) {
       ${extraStyles}
@@ -25,11 +29,11 @@ export const breakpoint: IBreakpoint = {
   },
 };
 
-interface ITransition {
+interface IState {
   active: (extraStyles: string) => string;
 }
 
-export const transition: ITransition = {
+export const state: IState = {
   active: (extraStyles: string): string => {
     return `&:active {
       ${extraStyles}
