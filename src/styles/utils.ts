@@ -7,10 +7,6 @@ const SIZE: INumbersOnly = {
   TABLET: 900
 }
 
-// const COLOUR = {
-//   PRIMARY: 'red'
-// }
-
 interface IMedia {
   phone: (extraStyles: string) => string;
   tablet: (extraStyles: string) => string;
