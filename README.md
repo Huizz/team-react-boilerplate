@@ -5,9 +5,9 @@ Details of the original guide can be found [here](https://github.com/wmonk/creat
 ## Getting started
 To start using this project, clone the repository and run
 
-`yarn install`
+`npm install`
 
-`yarn start`
+`npm start`
 
 ## Guidelines
 - Capitalize component names
