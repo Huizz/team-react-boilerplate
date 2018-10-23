@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
-import { getLoggedInState, getUserObject, IState } from 'reducer';
-import { login } from 'services/user/actions';
+import { IState } from 'services/reducer';
+import { login } from 'services/user/user.actions';
 
 import Home from './Home';
 
 const mapStateToProps = (state: IState) => ({
-    isLoggedIn: getLoggedInState(state),
-    user: getUserObject(state),
+    isLoggedIn: state.user.isLoggedIn,
+    user: state.user.user,
 })
 
 const mapDispatchToProps = (dispatch: any) => ({
