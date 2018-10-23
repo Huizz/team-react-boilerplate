@@ -3,7 +3,8 @@ const mockUser = {
 };
 
 const login = async (username: string, password: string): Promise<any> => {
-  const user = await mockLogin();
+  const user = await mockLogin(); // use setTimeout to mimic async function
+  user.name = username;
   return user;
 };
 
