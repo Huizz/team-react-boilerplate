@@ -5,15 +5,23 @@ export interface IUserState {
     user: any
 }
 
-const initialState: IUserState = {
+interface IAction {
+    type: string,
+    payload: any
+}
+
+export const initialState: IUserState = {
     isLoggedIn: false,
     user: {},
 }
 
-const UserReducer = (state: IUserState = initialState, action: any): IUserState => {
+const UserReducer = (state: IUserState = initialState, action: IAction): IUserState => {
     switch(action.type) {
         case actions.LOGIN:
-            return { ...state, isLoggedIn: true, user: action.payload }
+            return { ...state, 
+                isLoggedIn: true, 
+                user: action.payload 
+            }
         default:
             return state;
     }
