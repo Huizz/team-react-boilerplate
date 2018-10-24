@@ -6,6 +6,7 @@ interface IProps {
   login: (username: string, password: string) => void,
   user?: any,
   isLoggedIn: boolean,
+  history?: any,
 }
 
 interface IState {
@@ -38,6 +39,7 @@ class Home extends React.Component<IProps, IState> {
       return (
         <div>
           Welcome, {this.props.user.name}
+          <Button name="Go to form" size="large" onClick={this.goToForm} />
         </div>
       )
     } else {
@@ -55,6 +57,10 @@ class Home extends React.Component<IProps, IState> {
     const state = { ...this.state };
     state[event.target.name] = event.target.value;
     this.setState(state);
+  }
+
+  private goToForm = () =>  {
+    this.props.history.push('/form');
   }
 }
 
