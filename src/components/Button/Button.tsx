@@ -1,7 +1,11 @@
 import * as React from "react";
 import { ButtonContainer } from "./Button.styles";
 
-interface IProps {
+interface IComponent {
+  className?: string
+}
+
+interface IProps extends IComponent{
   name: string;
   size: "large" | "small";
   onClick(): void;

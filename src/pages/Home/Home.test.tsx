@@ -7,7 +7,7 @@ describe('Home component', () => {
   const mockLoginFunction = jest.fn();
 
   beforeEach(() => {
-    wrapper = shallow(<Home login={mockLoginFunction} isLoggedIn={false} />);
+    wrapper = shallow(<Home redux_login={mockLoginFunction} redux_isLoggedIn={false} />);
   });
 
   it('should call the mock login function', () => {
@@ -17,11 +17,11 @@ describe('Home component', () => {
 
   it('should call login with email and password in the state as arguments', () => {
     wrapper
-      .find('input[name="username"]')
+      .find('.loginForm__username')
       .simulate('change', { target: { name: 'username', value: 'Test user' } });
 
     wrapper
-      .find('input[name="password"]')
+      .find('.loginForm__password')
       .simulate('change', { target: { name: 'password', value: 'Password' } });
 
     wrapper.find('Button').simulate('click');

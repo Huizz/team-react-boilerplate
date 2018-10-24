@@ -1,4 +1,4 @@
-import actions from './user.actions';
+import types from './user.types';
 
 export interface IUserState {
     isLoggedIn: boolean,
@@ -6,18 +6,18 @@ export interface IUserState {
 }
 
 interface IAction {
-    type: number,
+    type: string,
     payload: any
 }
 
-export const initialState: IUserState = {
+const initialState: IUserState = {
     isLoggedIn: false,
     user: {},
 }
 
 const UserReducer = (state: IUserState = initialState, action: IAction): IUserState => {
     switch(action.type) {
-        case actions.LOGIN:
+        case types.LOGIN:
             return { ...state, 
                 isLoggedIn: true, 
                 user: action.payload 

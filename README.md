@@ -20,3 +20,6 @@ To start using this project, clone the repository and run
 - Use absolute path if importing from other directories/folders. Use relative path when importing within the same directory
 - If npm dependency is not used in production (e.g. jest), save it under devDependecies via save-dev
 - Actions (per reducer) should be defined in an enum
+- For components that have interaction with redux, abstract the connect function in a <componentName>.container.ts and point its index.ts to that file
+- Prepand all connected redux state and actions with a redux_ prefix => e.g. redux_login, redux_user
+- All components must have a className of format: block__elementName--modifier => e.g. form || form__username || form__username--disabled

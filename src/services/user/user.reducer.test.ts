@@ -1,11 +1,11 @@
-import actions from './user.actions';
 import UserReducer, { IUserState } from './user.reducer';
+import types from './user.types';
 
 describe('UserReducer', () => {
     it('should return updateState of user login given LOGIN action', () => {
         const ACTION = {
             payload: 'USER 1',
-            type: actions.LOGIN
+            type: types.LOGIN
         };
 
         const PREVIOUS_STATE: IUserState = {

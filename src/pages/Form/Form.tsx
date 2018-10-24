@@ -21,12 +21,13 @@ class Form extends React.Component<IProps, IState> {
   }
 
   public render = () => (
-    <div>
+    <div className="form">
       I have been clicked {this.state.counter} times!
-      <Button name="counter" size="large" onClick={this.handleOnClick} />
+      <Button className="form__button" name="counter" size="large" onClick={this.handleOnClick} />
     </div>
   );
 
 }
+
 
 export default Form;
