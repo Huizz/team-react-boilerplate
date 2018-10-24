@@ -1,4 +1,4 @@
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import * as React from 'react';
 import Home from './Home';
 
@@ -7,7 +7,7 @@ describe('Home component', () => {
   const mockLoginFunction = jest.fn();
 
   beforeEach(() => {
-    wrapper = shallow(<Home redux_login={mockLoginFunction} redux_isLoggedIn={false} />);
+    wrapper = mount(<Home redux_login={mockLoginFunction} redux_isLoggedIn={false} />);
   });
 
   it('should call the mock login function', () => {

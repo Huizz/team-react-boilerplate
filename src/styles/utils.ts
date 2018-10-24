@@ -1,6 +1,4 @@
-interface INumbersOnly {
-  [key: string]: number;
-}
+import { INumbersOnly } from 'utils/interfaces';
 
 const SIZE: INumbersOnly = {
   PHONE: 480,

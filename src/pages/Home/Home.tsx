@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import Button from 'components/Button';
+import Login from './children/Home.Login';
+import Profile from './children/Home.Profile';
 
 interface IProps {
     redux_login: (username: string, password: string) => void;
@@ -9,22 +10,14 @@ interface IProps {
     history?: any;
 }
 
-interface IState {
-    password: string;
-    username: string;
-}
 
-class Home extends React.Component<IProps, IState> {
-    public state = {
-        password: '',
-        username: ''
-    };
+class Home extends React.Component<IProps, any> {
 
     public render = () => {
 
-      let content = this.renderLogin();
+      let content = <Login login={this.onLoginClick} />;
       if(this.props.redux_isLoggedIn){
-        content = this.renderProfile();
+        content = <Profile username={this.props.redux_user.name} goToAction={this.onGoToFormClick}/>;
       }
 
       return (
@@ -35,46 +28,14 @@ class Home extends React.Component<IProps, IState> {
       )
     };
 
-    private handleClick = () => {
-        this.props.redux_login(this.state.username, this.state.password);
+    private onLoginClick = (username: string, password: string) => {
+        this.props.redux_login(username, password);
     };
 
-    private renderProfile = () => (
-        <>
-            <div>Welcome, {this.props.redux_user.name}</div>;
-            <Button name="Go to form" size="large" onClick={this.goToForm} />;
-        </>
-    );
-
-    private renderLogin = () => (
-        <>
-            <input
-                type="text"
-                name="username"
-                className="loginForm__username"
-                value={this.state.username}
-                onChange={this.onInputChange}
-            />
-            <input
-                type="password"
-                name="password"
-                className="loginForm__password"
-                value={this.state.password}
-                onChange={this.onInputChange}
-            />
-            <Button name="Login" size="large" onClick={this.handleClick} />
-        </>
-    );
-
-    private onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const state = { ...this.state };
-        state[event.target.name] = event.target.value;
-        this.setState(state);
-    };
-
-    private goToForm = () => {
+    private onGoToFormClick = () => {
         this.props.history.push('/form');
-    };
+    }
+
 }
 
 export default Home;

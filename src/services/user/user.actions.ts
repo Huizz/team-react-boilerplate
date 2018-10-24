@@ -1,3 +1,4 @@
+import { IAction } from 'utils/interfaces';
 import userAPI from './user.api';
 import types from './user.types';
 
@@ -6,7 +7,7 @@ export const login = (username: string, password: string) => async (dispatch:any
     dispatch(handleLoginComplete(user));
 };
 
-const handleLoginComplete = (user: any) => ({
+const handleLoginComplete = (user: any): IAction => ({
     payload: user,
     type: types.LOGIN
 });

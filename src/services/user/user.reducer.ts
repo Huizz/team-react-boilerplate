@@ -1,13 +1,9 @@
+import { IAction } from 'utils/interfaces';
 import types from './user.types';
 
 export interface IUserState {
     isLoggedIn: boolean,
     user: any
-}
-
-interface IAction {
-    type: string,
-    payload: any
 }
 
 const initialState: IUserState = {
