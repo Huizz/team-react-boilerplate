@@ -1,4 +1,4 @@
-import { IAction } from 'utils/interfaces';
+import { IAction } from 'app/utils/interfaces';
 import types from './user.types';
 
 export interface IUserState {

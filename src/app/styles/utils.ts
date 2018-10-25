@@ -1,4 +1,4 @@
-import { INumbersOnly } from 'utils/interfaces';
+import { INumbersOnly } from 'app/utils/interfaces';
 
 const SIZE: INumbersOnly = {
   PHONE: 480,

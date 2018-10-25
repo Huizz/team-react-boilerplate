@@ -1,4 +1,4 @@
-import { media, state, styled } from 'styles';
+import { media, state, styled } from 'app/styles';
 
 const buttonPhoneStyle: string = `
   background: blue;
