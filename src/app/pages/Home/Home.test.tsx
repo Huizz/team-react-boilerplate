@@ -29,6 +29,5 @@ describe('Home component', () => {
     // this is the second time the mock function is being called
     expect(mockLoginFunction.mock.calls[1][0]).toBe('Test user');
     expect(mockLoginFunction.mock.calls[1][1]).toBe('Password');
-
   });
 });
