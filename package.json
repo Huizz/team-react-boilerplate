@@ -26,10 +26,12 @@
         "styled-components": "^4.0.2"
     },
     "scripts": {
-        "dev": "concurrently \"npm run start\" \"npm run build:server\" ",
-        "start": "node config/scripts/start.js",
-        "build": "node config/scripts/build.js",
-        "build:server": "webpack --config config/webpack.config.server.js --watch",
+        "dev": "concurrently \"npm run start:app\" \"npm run start:server\" ",
+        "build:prod": "npm run build:app && npm run build:server",
+        "build:app": "node config/scripts/build.js",
+        "build:server": "webpack --config config/webpack.config.server.js",
+        "start:app": "node config/scripts/start.js",
+        "start:server": "webpack --config config/webpack.config.server.js --watch",
         "test": "node config/scripts/test.js --env=jsdom"
     },
     "devDependencies": {
