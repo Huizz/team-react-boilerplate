@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import Button from 'components/Button';
+import Button from 'app/components/Button';
 
 interface IProps {
   startCount?: number

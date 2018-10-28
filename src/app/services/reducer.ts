@@ -1,7 +1,7 @@
 // overall reducers for the app
 import { combineReducers } from 'redux';
 
-import UserReducer, { IUserState } from 'services/user/user.reducer';
+import UserReducer, { IUserState } from 'app/services/user/user.reducer';
 
 export interface IState {
     user: IUserState;

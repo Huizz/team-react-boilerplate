@@ -1,16 +1,13 @@
 import * as React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { applyMiddleware, compose, createStore, Store  } from 'redux'; 
+import { applyMiddleware, compose, createStore, Store } from 'redux'; 
 import reduxThunk from 'redux-thunk';
 
-import { IState, state } from 'services/reducer';
+import { IState, state } from 'app/services/reducer';
 
-import Form from 'pages/Form';
-import Home from 'pages/Home';
-
-import './App.css';
-
+import Form from 'app/pages/Form';
+import Home from 'app/pages/Home';
 
 const store:Store<IState> = createStore(
   state,

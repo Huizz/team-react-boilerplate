@@ -129,6 +129,7 @@ module.exports = {
         loader: require.resolve('source-map-loader'),
         enforce: 'pre',
         include: paths.appSrc,
+        exclude: paths.serverSrc
       },
       {
         // "oneOf" will traverse all following loaders until one will
@@ -148,6 +149,7 @@ module.exports = {
           {
             test: /\.(js|jsx|mjs)$/,
             include: paths.appSrc,
+            exclude: paths.serverSrc,
             loader: require.resolve('babel-loader'),
             options: {
               
@@ -158,6 +160,7 @@ module.exports = {
           {
             test: /\.(ts|tsx)$/,
             include: paths.appSrc,
+            exclude: paths.serverSrc,
             use: [
               {
                 loader: require.resolve('ts-loader'),

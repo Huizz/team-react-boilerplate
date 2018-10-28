@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
-import { IState } from 'services/reducer';
-import { login } from 'services/user/user.actions';
+
+import { IState } from 'app/services/reducer';
+import { login } from 'app/services/user/user.actions';
 
 import Home from './Home';
 
