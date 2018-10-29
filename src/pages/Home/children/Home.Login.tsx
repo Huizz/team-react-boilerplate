@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Helmet } from 'react-helmet';
 
 import Button from 'components/Button';
 
@@ -20,6 +21,9 @@ class Login extends React.Component<IHomeLoginProps, IState> {
 
     public render = () => (
         <>
+            <Helmet>
+                <title>Please login</title>
+            </Helmet>
             <input
                 type="text"
                 name="username"
