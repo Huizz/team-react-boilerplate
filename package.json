@@ -4,7 +4,6 @@
     "private": true,
     "proxy": "http://localhost:5000",
     "dependencies": {
-        "@types/enzyme": "^3.1.14",
         "axios": "^0.18.0",
         "dotenv": "4.0.0",
         "dotenv-expand": "4.2.0",
@@ -32,9 +31,11 @@
         "build:server": "webpack --config config/webpack.config.server.js",
         "start:app": "node config/scripts/start.js",
         "start:server": "webpack --config config/webpack.config.server.js --watch",
-        "test": "CI=true node config/scripts/test.js --env=jsdom"
+        "test": "CI=true node config/scripts/test.js --env=jsdom",
+        "test:int": "jest __tests__"
     },
     "devDependencies": {
+        "@types/enzyme": "^3.1.14",
         "@types/jest": "^23.3.7",
         "@types/koa": "^2.0.44",
         "@types/koa-bodyparser": "^5.0.1",
@@ -99,7 +100,7 @@
             "<rootDir>/config/setupTests.js"
         ],
         "testMatch": [
-            "<rootDir>/src/**/__tests__/**/*.(j|t)s?(x)",
+            "<rootDir>/__tests__/*.(j|t)s?(x)",
             "<rootDir>/src/**/?(*.)(spec|test).(j|t)s?(x)"
         ],
         "testEnvironment": "node",
