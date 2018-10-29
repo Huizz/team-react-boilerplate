@@ -13,7 +13,7 @@ import { state } from 'services/reducer';
 import * as fs from 'fs';
 import * as path from 'path';
 
-import App from 'App';
+import { StaticApp } from 'App';
 
 const configureStore = () => {
     return createStore(
@@ -25,7 +25,7 @@ const configureStore = () => {
 }
 
 const loader = (req : any, res : any) => {
-    const filePath = path.resolve(__dirname, '..', 'build', 'index.html'); // get compiled index page
+    const filePath = path.resolve('build/index.html'); // get compiled index page
     fs.readFile(filePath, 'utf8', (err, htmlData) => {
         if (err) {
             console.error('read err', err)
@@ -41,7 +41,7 @@ const loader = (req : any, res : any) => {
                     location={req.url}
                     context={context}
                 >
-                    <App />
+                    <StaticApp />
                 </StaticRouter>
             </Provider>
         );
@@ -51,7 +51,10 @@ const loader = (req : any, res : any) => {
             res.redirect(301, context.url)
         } else {
             // we're good, send the response
-            const RenderedApp = htmlData.replace('{{SSR}}', markup)
+            const RenderedApp = htmlData.replace(
+                '<div id="root"></div>',
+                `<div id="root">${markup}</div><script>window.__PRELOADED_STATE__ = ${state}</script>`
+              );
             res.send(RenderedApp)
         }
     })
