@@ -1,15 +1,14 @@
 import * as React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { applyMiddleware, compose, createStore, Store  } from 'redux'; 
 import reduxThunk from 'redux-thunk';
 
 import { IState, state } from 'services/reducer';
 
-import Form from 'pages/Form';
-import Home from 'pages/Home';
+import './App.css';
 
-// import './App.css';
+import StaticApp from './StaticApp';
 
 
 const store:Store<IState> = createStore(
@@ -22,19 +21,9 @@ const store:Store<IState> = createStore(
 const App: React.StatelessComponent<{}> = () => (
   <Provider store={store}>
     <BrowserRouter>
-      <Switch>
-        <Route exact={true} path="/" component={Home} />
-        <Route exact={true} path="/form" component={Form} />
-      </Switch>
+      <StaticApp />
     </BrowserRouter>
   </Provider>
 );
-
-export const StaticApp: React.StatelessComponent<{}> = () => (
-  <Switch>
-    <Route exact={true} path="/" component={Home} />
-    <Route exact={true} path="/form" component={Form} />
-  </Switch>
-)
 
 export default App;
