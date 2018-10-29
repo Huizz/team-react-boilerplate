@@ -9,7 +9,7 @@ import { IState, state } from 'services/reducer';
 import Form from 'pages/Form';
 import Home from 'pages/Home';
 
-import './App.css';
+// import './App.css';
 
 
 const store:Store<IState> = createStore(
@@ -29,5 +29,12 @@ const App: React.StatelessComponent<{}> = () => (
     </BrowserRouter>
   </Provider>
 );
+
+export const StaticApp: React.StatelessComponent<{}> = () => (
+  <Switch>
+    <Route exact={true} path="/" component={Home} />
+    <Route exact={true} path="/form" component={Form} />
+  </Switch>
+)
 
 export default App;
