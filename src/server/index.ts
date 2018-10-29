@@ -3,7 +3,7 @@ import * as bodyParser from 'koa-bodyparser';
 import * as compress from 'koa-compress';
 import * as cors from 'koa2-cors';
 
-import RootRouter from './routes';
+import RootRouter from 'server/routes';
 
 const app: Koa = new Koa();
 

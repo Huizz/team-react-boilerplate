@@ -1,5 +1,8 @@
-describe.only('basic test', () => {
+import { testFunction } from 'server/routes';
+
+describe('basic test', () => {
     it('try basic test', () => {
-        expect(1).toBe(1);
+        const test = testFunction();
+        expect(test).toBe(2);
     });
 });

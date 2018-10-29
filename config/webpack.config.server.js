@@ -1,5 +1,7 @@
 const fs = require('fs');
 const NodemonPlugin = require('nodemon-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+
 
 const paths = require('./paths');
 
@@ -20,6 +22,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js'],
+    plugins: [
+      new TsconfigPathsPlugin({ configFile: paths.appTsConfig })
+    ],
   },
   module: {
     loaders: [
