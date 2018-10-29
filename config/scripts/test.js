@@ -26,6 +26,5 @@ if (
 ) {
   argv.push('--watch');
 }
-
-
+argv.splice(0, 0, 'src');
 jest.run(argv);

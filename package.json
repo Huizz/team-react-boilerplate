@@ -31,7 +31,7 @@
         "build:server": "webpack --config config/webpack.config.server.js",
         "start:app": "node config/scripts/start.js",
         "start:server": "webpack --config config/webpack.config.server.js --watch",
-        "test": "CI=true node config/scripts/test.js --env=jsdom",
+        "test:unit": "CI=true node config/scripts/test.js --env=jsdom",
         "test:int": "jest __tests__"
     },
     "devDependencies": {

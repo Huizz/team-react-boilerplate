@@ -4,7 +4,6 @@ set -e
 
 CONTAINER_NAME=eol-local-db
 
-
 if [[ $(docker ps -a | grep $CONTAINER_NAME) ]];
 then
     docker start $CONTAINER_NAME
