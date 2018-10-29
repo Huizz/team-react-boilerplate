@@ -27,8 +27,8 @@
   "scripts": {
     "build:app": "node scripts/build.js",
     "start:dev": "node scripts/start.js",
-    "build:server": "webpack --config config/webpack.config.server.js",
-    "start:server": "webpack --config config/webpack.config.server.js --watch",
+    "build:ssr": "webpack --config config/webpack.config.ssr.js",
+    "start:ssr": "webpack --config config/webpack.config.ssr.js --watch",
     "test": "node scripts/test.js --env=jsdom"
   },
   "devDependencies": {
