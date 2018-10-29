@@ -100,7 +100,7 @@
             "<rootDir>/config/setupTests.js"
         ],
         "testMatch": [
-            "<rootDir>/__tests__/*.(j|t)s?(x)",
+            "<rootDir>/__tests__/**/*.(j|t)s?(x)",
             "<rootDir>/src/**/?(*.)(spec|test).(j|t)s?(x)"
         ],
         "testEnvironment": "node",
