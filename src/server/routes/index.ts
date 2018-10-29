@@ -1,11 +1,15 @@
 import * as Router from 'koa-router';
-import UserRouter from './user/user.routes';
+import userRouter from './user.routes';
 
-const RootRouter: Router = new Router();
-RootRouter.use(UserRouter.routes(), UserRouter.allowedMethods());
+const router = new Router();
 
-export const testFunction = (): number => {
-  return 2
-}
+router.prefix('/v0');
+router.get('/health', (ctx, next) => {
+  ctx.status = 200;
+  ctx.body = 'API endpoint is running'
+});
 
-export default RootRouter;
+// user specific routes. path defined as /v1/user/
+router.use('/users', userRouter.routes(), userRouter.allowedMethods())
+
+export default router;

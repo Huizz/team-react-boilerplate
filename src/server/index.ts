@@ -1,18 +1,7 @@
-import * as Koa from 'koa';
-import * as bodyParser from 'koa-bodyparser';
-import * as compress from 'koa-compress';
-import * as cors from 'koa2-cors';
+import { config } from 'dotenv';
+import server from './server';
 
-import RootRouter from 'server/routes';
+config(); // parse env variables
 
-const app: Koa = new Koa();
-
-app
-    .use(cors({ origin: '*' }))
-    .use(compress())
-    .use(bodyParser())
-    .use(RootRouter.routes())
-    .use(RootRouter.allowedMethods());
-
-app.listen(5000);
-console.log("server listening on port 5000");
+const port: string = process.env.PORT || '5000';
+server.listen(port, () => console.log(`API server started on ${port}`));
