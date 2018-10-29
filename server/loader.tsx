@@ -2,8 +2,8 @@
 import { Context } from 'koa';
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
-// import Helmet from 'react-helmet';
 // import * as Loadable from 'react-loadable';
+import { Helmet } from 'react-helmet';
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router';
 import { applyMiddleware, compose, createStore } from 'redux';
@@ -23,6 +23,7 @@ const configureStore = () => {
         )
     )
 }
+const store = configureStore();
 
 const loader = async (ctx: Context, next: any) => {
     await readFile(ctx); // readFile is async
@@ -38,7 +39,6 @@ const readFile = (ctx: Context) => {
                 // @TODO: check if this is the correct method
                 reject(ctx);
             }
-            const store = configureStore()
             const staticContext = {};
             const markup = renderToString(
                 <Provider store={store}>
@@ -51,11 +51,13 @@ const readFile = (ctx: Context) => {
                 </Provider>
             );
 
+            const helmet = Helmet.renderStatic();
+
             // send the response
-            const RenderedApp = htmlData.replace(
-                '<div id="root"></div>',
-                `<div id="root">${markup}</div><script>window.__PRELOADED_STATE__ = ${state}</script>`
-            );
+            const RenderedApp = htmlData
+              .replace('<div id="root"></div>', `<div id="root">${markup}</div><script>window.__PRELOADED_STATE__ = ${state}</script>`)
+              .replace(/<title>.*?<\/title>/g, helmet.title.toString())
+
             ctx.status = 200;
             ctx.type = 'html';
             ctx.body = RenderedApp;
