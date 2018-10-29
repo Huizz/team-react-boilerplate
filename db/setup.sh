@@ -2,6 +2,10 @@
 
 set -e
 
+set -a # automatically export all variables
+source .env
+set +a
+
 CONTAINER_NAME=eol-local-db
 
 if [[ $(docker ps -a | grep $CONTAINER_NAME) ]];
@@ -10,9 +14,9 @@ then
 else
     docker run -d \
         -e 'MYSQL_DATABASE=eol-local-db' \
-        -e 'MYSQL_USER=' \
-        -e 'MYSQL_PASSWORD=' \
-        -e 'MYSQL_ROOT_PASSWORD=' \
+        -e 'MYSQL_USER='"$DB_USERNAME" \
+        -e 'MYSQL_PASSWORD='"$DB_PASSWORD" \
+        -e 'MYSQL_ROOT_PASSWORD='"$DB_PASSWORD" \
         -e 'TZ=Asia/Singapore' \
         -p 3306:3306 \
         --name $CONTAINER_NAME \

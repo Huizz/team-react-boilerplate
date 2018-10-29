@@ -5,9 +5,13 @@ import * as BodyParser from 'koa-bodyparser';
 import * as Helmet from 'koa-helmet';
 import * as Logger from 'koa-logger';
 
+import { errorMiddleware } from 'server/middlewares';
+
 import router from './routes';
 
 const app: Koa = new Koa();
+
+app.use(errorMiddleware);
 
 app.use(Helmet());
 

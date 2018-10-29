@@ -1,4 +1,4 @@
-import ErrorManager from './error.util';
+import ErrorManager from './errorManager';
 
 export default class Validator {
 
@@ -8,6 +8,6 @@ export default class Validator {
   constructor(type: string = 'Unknown Object') {
     this.type = type;
     this.error = (errorCode = 500) => new ErrorManager(this.type, errorCode);
-  }
+  } 
 
 }

@@ -3,9 +3,18 @@ import UserController from '../model/user/user.controller';
 import assetRouter from './asset.route';
 
 const userRouter = new Router();
-userRouter.get('/:userId', UserController.getUser)
-userRouter.get('/', UserController.getUsers)
+
+userRouter.get('/:userId', async context => {
+    const controller = new UserController(context);
+    await controller.getUser();
+});
+
+userRouter.get('/', async context => {
+    const controller = new UserController(context);
+    await controller.getUsers();
+});
+
 // get user's assets
 userRouter.use('/assets', assetRouter.routes(), assetRouter.allowedMethods());
 
-export default userRouter
+export default userRouter;

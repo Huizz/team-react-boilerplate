@@ -1,4 +1,4 @@
-interface IError {
+export interface IError {
   httpCode: number;
   code: number;
   message: string;
@@ -10,16 +10,6 @@ interface IErrorType<T> {
   unauthorised: T;
   notFound: T;
   unexpected: T;
-}
-
-export const buildError = (code: number, message: string, error?: any): IError => {
-  code = Math.abs(code);
-  return {
-    httpCode: (code < 1000) ? code : Math.floor(code / 10),
-    code: 0 - code,
-    message,
-    error
-  }
 }
 
 export default class ErrorManager {
@@ -60,5 +50,25 @@ export default class ErrorManager {
   public returnUnexpectedError() {
     return buildError(this.httpCode.unexpected, this.message.unexpected);
   }
+}
 
+export const buildError = (code: number, message: string, error?: any): IError => {
+  code = Math.abs(code);
+  return {
+    httpCode: (code < 1000) ? code : Math.floor(code / 10),
+    code: 0 - code,
+    message,
+    error
+  }
+}
+
+export const formatError = (err: any) => {
+  const sampleErrorObj = buildError(200, 'sample');
+  const sampleKeys = Object.keys(sampleErrorObj).sort();
+  const errorKeys = Object.keys(err).sort();
+
+  if(JSON.stringify(sampleKeys) !== JSON.stringify(errorKeys)){
+    return buildError(500, 'Something wrong happened', err)
+  }
+  return err;
 }

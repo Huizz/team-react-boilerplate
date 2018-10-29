@@ -1,21 +1,24 @@
 import { Context } from 'koa';
 import UserModel from './user.model';
 
-class UserController {
-  public static getUser = async (ctx: Context) => {
-    const user = await UserModel.getUser(ctx.params.userId)
-      .catch((error) => {
-        ctx.throw(500, error.message) // @TODO: this message is not being exposed to user
-      });
-    ctx.status = 200;
-    ctx.body = user;
+import BaseController from 'server/utils/base/controller';
+
+class UserController extends BaseController {
+
+  constructor(ctx: Context) {
+    super('User Controller', ctx);
   }
 
-  public static getUsers = async (ctx: Context) => {
-    const users = await UserModel.getUsers();
-    ctx.status = 200;
-    ctx.body = users;
+  public getUser = async () => {
+    const user = await UserModel.getUser(this.ctx.params.userId);
+    this.sendToClient(user);
   }
+
+  public getUsers = async () => {
+    const users = await UserModel.getUsers();
+    this.sendToClient(users);
+  }
+
 }
 
 export default UserController;

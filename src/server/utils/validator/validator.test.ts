@@ -15,12 +15,14 @@ describe('Validator', () => {
     });
 
     test('respective errors thrown if condition is TRUE', () => {
+      const errorMessages = validator.error().message;
+
       expect.assertions(5);
-      expect(() => validator.error(400).throwsWhen(true)).toThrow(new RegExp(validator.error().message.badRequest));
-      expect(() => validator.error(403).throwsWhen(true)).toThrow(new RegExp(validator.error().message.unauthorised));
-      expect(() => validator.error(404).throwsWhen(true)).toThrow(new RegExp(validator.error().message.notFound));
-      expect(() => validator.error(500).throwsWhen(true)).toThrow(new RegExp(validator.error().message.unexpected));
-      expect(() => validator.error(1).throwsWhen(true)).toThrow(new RegExp(validator.error().message.unexpected));
+      expect(() => validator.error(400).throwsWhen(true)).toThrow(new RegExp(errorMessages.badRequest));
+      expect(() => validator.error(403).throwsWhen(true)).toThrow(new RegExp(errorMessages.unauthorised));
+      expect(() => validator.error(404).throwsWhen(true)).toThrow(new RegExp(errorMessages.notFound));
+      expect(() => validator.error(500).throwsWhen(true)).toThrow(new RegExp(errorMessages.unexpected));
+      expect(() => validator.error(1).throwsWhen(true)).toThrow(new RegExp(errorMessages.unexpected));
     });
   })
 
