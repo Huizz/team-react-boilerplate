@@ -15,6 +15,13 @@ import * as path from 'path';
 
 import StaticApp from 'StaticApp';
 
+/*
+    NOTE: if the server side rendered page has to be the component that updates the redux state.,
+    can store the server redux state in the script variable ie. __SERVER_REDUX_STATE__
+    then the redux store in the client side has to take note of changes to this server redux state.
+
+    ref: https://medium.com/bucharestjs/adding-state-management-with-redux-in-a-cra-srr-project-9798d74dbb3b
+*/
 const configureStore = () => {
     return createStore(
         state,
@@ -51,7 +58,7 @@ const readFile = (ctx: Context) => {
                 </Provider>
             );
 
-            const helmet = Helmet.renderStatic();
+            const helmet = Helmet.renderStatic(); // @TODO: not getting the child component title for login page
 
             // send the response
             const RenderedApp = htmlData
