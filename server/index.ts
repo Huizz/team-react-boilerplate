@@ -4,7 +4,7 @@ import * as Koa from 'koa';
 import * as BodyParser from 'koa-bodyparser';
 import * as Router from 'koa-router';
 import * as serve from 'koa-static-server';
-import * as Loadable from 'react-loadable';
+// import * as Loadable from 'react-loadable';
 
 import loader from './loader';
 
@@ -28,13 +28,9 @@ app.use(serve({ rootDir: 'build/static', rootPath: '/static' }))
 
 app.use(router.routes());
 app.use(router.allowedMethods());
-app.use(loader);
-// app.use('express.static('build'))
 
-Loadable.preloadAll().then(() => {
-    app.listen(port, () => { console.log(`App listening on port ${port}!`) });
-});
+app.listen(port, () => { console.log(`App listening on port ${port}!`) });
 
-// build the app first
-// then build the server file
-// then serve the server file
+// Used when code splitting is used
+// Loadable.preloadAll().then(() => {
+// });
