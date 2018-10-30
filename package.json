@@ -3,6 +3,24 @@
     "version": "0.1.0",
     "private": true,
     "proxy": "http://localhost:5000",
+    "scripts": {
+
+        "build": "npm run build:server && npm run build:app",
+        "build:app": "node config/scripts/app/build.js",
+        "build:server": "webpack --config config/webpack/webpack.config.server.js",
+
+        "start": "concurrently \"npm run start:app\" \"npm run start:server\" ",
+        "start:app": "node config/scripts/app/start.js",
+        "start:server": "webpack --config config/webpack/webpack.config.server.js --watch",
+
+        "test": "npm run test:unit && npm run test:int",
+        "test:unit": "CI=true node config/scripts/app/test.js --env=jsdom",
+        "test:int": "jest __tests__",
+
+        "db:up": "sh config/scripts/db/setup-db.sh",
+
+        "env:sync": "sh config/scripts/env/sync-env-template.sh"
+    },
     "dependencies": {
         "@koa/cors": "^2.2.2",
         "axios": "^0.18.0",
@@ -26,24 +44,6 @@
         "redux": "^4.0.1",
         "redux-thunk": "^2.3.0",
         "styled-components": "^4.0.2"
-    },
-    "scripts": {
-
-        "build:prod": "npm run build:server && npm run build:app",
-        "build:app": "node config/scripts/app/build.js",
-        "build:server": "webpack --config config/webpack/webpack.config.server.js",
-
-        "start": "concurrently \"npm run start:app\" \"npm run start:server\" ",
-        "start:app": "node config/scripts/app/start.js",
-        "start:server": "webpack --config config/webpack/webpack.config.server.js --watch",
-
-        "test": "npm run test:unit && npm run test:int",
-        "test:unit": "CI=true node config/scripts/app/test.js --env=jsdom",
-        "test:int": "jest __tests__",
-
-        "db:up": "sh config/scripts/db/setup-db.sh",
-
-        "env:sync": "sh config/scripts/env/sync-env-template.sh"
     },
     "devDependencies": {
         "@types/dotenv": "^4.0.3",
