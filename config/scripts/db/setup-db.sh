@@ -6,7 +6,7 @@ set -a
 source .env
 set +a
 
-CONTAINER_NAME=eol-local-db
+CONTAINER_NAME=$DB
 
 if [[ $(docker ps -a | grep $CONTAINER_NAME) ]];
 then
