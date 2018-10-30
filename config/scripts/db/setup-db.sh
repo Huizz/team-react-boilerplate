@@ -2,7 +2,7 @@
 
 set -e
 
-set -a # automatically export all variables
+set -a
 source .env
 set +a
 
@@ -13,7 +13,7 @@ then
     docker start $CONTAINER_NAME
 else
     docker run -d \
-        -e 'MYSQL_DATABASE=eol-local-db' \
+        -e 'MYSQL_DATABASE='"$CONTAINER_NAME" \
         -e 'MYSQL_USER='"$DB_USERNAME" \
         -e 'MYSQL_PASSWORD='"$DB_PASSWORD" \
         -e 'MYSQL_ROOT_PASSWORD='"$DB_PASSWORD" \

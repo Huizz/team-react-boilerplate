@@ -3,7 +3,7 @@ const NodemonPlugin = require('nodemon-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 
-const paths = require('./paths');
+const paths = require('../paths');
 
 const nodeModules = {};
 fs.readdirSync('node_modules')

@@ -28,14 +28,22 @@
         "styled-components": "^4.0.2"
     },
     "scripts": {
-        "dev": "concurrently \"npm run start:app\" \"npm run start:server\" ",
-        "build:prod": "npm run build:app && npm run build:server",
-        "build:app": "node config/scripts/build.js",
-        "build:server": "webpack --config config/webpack.config.server.js",
-        "start:app": "node config/scripts/start.js",
-        "start:server": "webpack --config config/webpack.config.server.js --watch",
-        "test:unit": "CI=true node config/scripts/test.js --env=jsdom",
-        "test:int": "jest __tests__"
+
+        "build:prod": "npm run build:server && npm run build:app",
+        "build:app": "node config/scripts/app/build.js",
+        "build:server": "webpack --config config/webpack/webpack.config.server.js",
+
+        "start": "concurrently \"npm run start:app\" \"npm run start:server\" ",
+        "start:app": "node config/scripts/app/start.js",
+        "start:server": "webpack --config config/webpack/webpack.config.server.js --watch",
+
+        "test": "npm run test:unit && npm run test:int",
+        "test:unit": "CI=true node config/scripts/app/test.js --env=jsdom",
+        "test:int": "jest __tests__",
+
+        "db:up": "sh config/scripts/db/setup-db.sh",
+
+        "env:sync": "sh config/scripts/env/sync-env-template.sh"
     },
     "devDependencies": {
         "@types/dotenv": "^4.0.3",
