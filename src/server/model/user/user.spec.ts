@@ -9,7 +9,7 @@ describe('User controller tests', () => {
  
     test('should call user.model with id', async () => {
         const modelSpy = jest.spyOn(UserModel, 'getUser');
-        const mockContext: Context = { params: { userId: '15' }, throw: () => jest.fn() } as Context;
+        const mockContext: Context = { params: { username: 'Apple' }, throw: () => jest.fn() } as Context;
 
         controller = new UserController(mockContext);
 

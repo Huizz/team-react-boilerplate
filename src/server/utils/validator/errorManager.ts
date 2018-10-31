@@ -68,7 +68,7 @@ export const formatError = (err: any) => {
   const errorKeys = Object.keys(err).sort();
 
   if(JSON.stringify(sampleKeys) !== JSON.stringify(errorKeys)){
-    return buildError(500, 'Something wrong happened', err)
+    return buildError(500, 'Something went wrong', err)
   }
   return err;
 }

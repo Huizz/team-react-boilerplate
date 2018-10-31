@@ -6,6 +6,7 @@ export const errorMiddleware = async (ctx: Context, next: () => any) => {
         await next();
     } catch (err) {
         const errorToBeReturned = formatError(err);
+        console.log(errorToBeReturned);
         ctx.status = err.httpCode || 500;
         ctx.body = errorToBeReturned;
     }
