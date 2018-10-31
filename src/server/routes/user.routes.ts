@@ -1,4 +1,4 @@
-import * as Router from 'koa-router';
+import Router from 'koa-router';
 import UserController from '../model/user/user.controller';
 import assetRouter from './asset.route';
 

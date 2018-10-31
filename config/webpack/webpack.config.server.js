@@ -15,7 +15,7 @@ fs.readdirSync('node_modules')
   });
 
 module.exports = {
-  entry: './src/server/index.ts',
+  entry: './src/server/index',
   output: {
     path: paths.serverBuild,
     filename: 'server.js'
@@ -27,12 +27,7 @@ module.exports = {
     ],
   },
   module: {
-    loaders: [
-      {
-        test: /\.tsx?$/,
-        loader: 'ts-loader',
-      }
-    ]
+    rules: [{ test: /\.tsx?$/, use: 'ts-loader'}]
   },
   target: 'node',
   externals: nodeModules,

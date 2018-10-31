@@ -1,9 +1,9 @@
-import * as Koa from 'koa';
+import Koa from 'koa';
 
-import * as Cors from '@koa/cors';
-import * as BodyParser from 'koa-bodyparser';
-import * as Helmet from 'koa-helmet';
-import * as Logger from 'koa-logger';
+import Cors from '@koa/cors';
+import BodyParser from 'koa-bodyparser';
+import Helmet from 'koa-helmet';
+import Logger from 'koa-logger';
 
 import { errorMiddleware } from 'server/middlewares';
 

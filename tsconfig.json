@@ -5,15 +5,19 @@
       "app/*": ["app/*"],
       "server/*": ["server/*"],
     },
-    "outDir": "build/dist",
-    "module": "commonjs",
+    "outDir": "./build/",
     "target": "es5",
-    "lib": ["es6", "dom"],
-    "sourceMap": true,
-    "allowJs": true,
-    "jsx": "react",
+    "module": "commonjs",
     "moduleResolution": "node",
-    // "rootDir": "src",
+    "jsx": "preserve",
+    "lib": ["es6", "dom"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -23,13 +27,11 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true
   },
+  "include": [
+    "src"
+  ],
   "exclude": [
     "node_modules",
-    "build",
-    "scripts",
-    "acceptance-tests",
-    "webpack",
-    "jest",
-    "src/setupTests.ts"
+    "build"
   ]
 }

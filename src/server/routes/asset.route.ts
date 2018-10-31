@@ -1,4 +1,4 @@
-import * as Router from 'koa-router';
+import Router from 'koa-router';
 import AssetController from '../model/asset/asset.controller';
 
 const assetRouter = new Router();
