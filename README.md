@@ -9,6 +9,20 @@ To start using this project, clone the repository and run
 
 `npm start`
 
+To start running a docker image of the database on your local machine, first edit the .env file with the following variables:
+```
+DB=YOUR_DB_NAME // This will also be your container name
+DB_USER=YOUR_DB_USERNAME
+DB_PASSWORD=YOUR_DB_PASSWORD
+```
+
+Then run:
+
+`npm run db:up`
+
+This creates a new instance of the container image for the db. Data will not be persisted across images.
+
+
 ## Guidelines
 - Capitalize component names
 - Use single quotes for strings
