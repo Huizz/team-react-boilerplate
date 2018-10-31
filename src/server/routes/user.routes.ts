@@ -4,7 +4,7 @@ import assetRouter from './asset.route';
 
 const userRouter = new Router();
 
-userRouter.get('/:userId', async context => {
+userRouter.get('/:username', async context => {
     const controller = new UserController(context);
     await controller.getUser();
 });

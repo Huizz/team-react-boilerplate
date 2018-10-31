@@ -10,7 +10,7 @@ class UserController extends BaseController {
   }
 
   public getUser = async () => {
-    const user = await UserModel.getUser(this.ctx.params.userId);
+    const user = await UserModel.getUser(this.ctx.params.username);
     this.sendToClient(user);
   }
 

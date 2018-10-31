@@ -20,11 +20,12 @@ const mockUsers: User[] = [
     }
 ];
 
-export const getUser = (id: string): Promise<User> => {
-    const userid: string = id;
+export const getUser = (name: string): Promise<User> => {
+    // @TODO: can be either id or username, match user accordingly.
+    const username: string = name;
     return new Promise((resolve, reject) => {
         const user = mockUsers.find(eachUser => {
-            return eachUser.id === userid;
+            return eachUser.name === username;
         });
         setTimeout(() => {
             if (user) {
