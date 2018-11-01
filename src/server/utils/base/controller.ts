@@ -20,4 +20,13 @@ export default class BaseController {
     };
   }
 
+  public transact(model: any) {
+    console.log(`${JSON.stringify(model)} start transaction`);
+
+    // console.log(modelFunction.name);
+    // const result = await modelFunction();
+    // console.log("end transactiom");
+    return model;
+  }
+
 };

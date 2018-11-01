@@ -1,7 +1,9 @@
 import { Context } from 'koa';
 import { formatError } from 'server/utils/validator/errorManager';
 
-export const errorMiddleware = async (ctx: Context, next: () => any) => {
+type NextFunction = () => any;
+
+export const errorMiddleware = async (ctx: Context, next: NextFunction) => {
     try {
         await next();
     } catch (err) {
