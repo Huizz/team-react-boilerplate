@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Helmet } from 'react-helmet';
 
 import Button from 'app/components/Button';
 
@@ -21,10 +22,16 @@ class Form extends React.Component<IProps, IState> {
   }
 
   public render = () => (
-    <div className="form">
-      I have been clicked {this.state.counter} times!
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Form page</title>
+      </Helmet>
+      <div className="form">
+        I have been clicked {this.state.counter} times!
       <Button className="form__button" name="counter" size="large" onClick={this.handleOnClick} />
-    </div>
+      </div>
+    </>
   );
 
 }
