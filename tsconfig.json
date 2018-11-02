@@ -9,7 +9,7 @@
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
-    "jsx": "preserve",
+    "jsx": "react",
     "lib": ["es6", "dom"],
     "allowJs": true,
     "skipLibCheck": true,
