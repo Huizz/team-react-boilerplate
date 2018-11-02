@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet';
 
 import Button from 'app/components/Button';
+import Logo from 'app/assets/logo.svg';
 
 interface IProps {
   startCount?: number
@@ -30,6 +31,7 @@ class Form extends React.Component<IProps, IState> {
       <div className="form">
         I have been clicked {this.state.counter} times!
       <Button className="form__button" name="counter" size="large" onClick={this.handleOnClick} />
+        <img src={Logo} />
       </div>
     </>
   );
