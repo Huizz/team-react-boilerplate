@@ -6,7 +6,7 @@ const login = async (username: string, password: string): Promise<any> => {
   if (!username) {
     username = 'Banana';
   }
-  const userResponse = await axios.get(`${process.env.REACT_APP_API_URL}/v0/users/${username}`);
+  const userResponse = await axios.get(`${process.env.REACT_APP_API_URL}/api/users/${username}`);
   const user = userResponse.data.body;
 
   return user;

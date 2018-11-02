@@ -33,7 +33,7 @@ class Home extends React.Component<IProps, any> {
     };
 
     private onGoToFormClick = () => {
-        this.props.history.push('/form');
+        this.props.history.push('/client/form');
     }
 
 }
