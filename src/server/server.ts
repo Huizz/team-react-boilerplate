@@ -1,9 +1,9 @@
 import Koa from 'koa';
-
 import Cors from '@koa/cors';
 import BodyParser from 'koa-bodyparser';
 import Helmet from 'koa-helmet';
 import Logger from 'koa-logger';
+import serve from 'koa-static-server';
 
 import { errorMiddleware } from 'server/middlewares';
 
@@ -28,6 +28,9 @@ app.use(BodyParser({
     ctx.throw('body parse error', 422)
   }
 }));
+
+// serve static files
+app.use(serve({ rootDir: 'build/app/static', rootPath: '/static' }))
 
 app.use(router.routes())
 app.use(router.allowedMethods())
