@@ -3,6 +3,10 @@ import * as React from 'react';
 import Login from './children/Home.Login';
 import Profile from './children/Home.Profile';
 
+import { LanguageContext, LanguageConsumer } from 'app/utils/translation/LanguageProvider';
+
+import { FormattedMessage } from 'react-intl';
+
 interface IProps {
     redux_login: (username: string, password: string) => void;
     redux_user?: any;
@@ -12,6 +16,7 @@ interface IProps {
 
 
 class Home extends React.Component<IProps, any> {
+    static contextType = LanguageContext;
 
     public render = () => {
 
@@ -22,8 +27,18 @@ class Home extends React.Component<IProps, any> {
 
       return (
         <div>
+            <LanguageConsumer>
+                {value => (
+                    <select onChange={value.updateLanguage}>
+                        <option value='en'>English</option>
+                        <option value='zh'>Chinese</option>
+                    </select>
+                )}
+            </LanguageConsumer>
             <div>hello</div>
             {content}
+            <p>This is directly from context: {this.context.messages.test}</p>
+            <p>This is from react-intl: <FormattedMessage id="test" /></p>
         </div>
       )
     };

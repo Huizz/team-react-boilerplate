@@ -9,6 +9,7 @@ import { IState, state } from 'app/services/reducer';
 // import Form from 'app/pages/Form';
 // import Home from 'app/pages/Home';
 import StaticApp from './StaticApp';
+import LanguageProvider from './utils/translation/LanguageProvider';
 
 const store:Store<IState> = createStore(
   state,
@@ -19,9 +20,11 @@ const store:Store<IState> = createStore(
 
 const App: React.StatelessComponent<{}> = () => (
   <Provider store={store}>
-    <BrowserRouter>
-      <StaticApp />
-    </BrowserRouter>
+    <LanguageProvider>
+      <BrowserRouter>
+        <StaticApp />
+      </BrowserRouter>
+    </LanguageProvider>
   </Provider>
 );
 
